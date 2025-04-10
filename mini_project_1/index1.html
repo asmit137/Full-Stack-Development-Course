@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Project 1</title>
+</head>
+
+<body style="background-color: black; color: white;">
+    <h1>Mini Project 1</h1>
+
+    <input type="text" name="search" id="search">
+    <button onclick="addthefilter(stringArr)">Search</button>
+
+
+    <ul id="studentList">
+    </ul>
+</body>
+<script>
+    let stringArr = ["Ayush", "Asmit", "Soham", "Shreejay", "Mayur"]
+    function displaylist(stringArr) {
+        let newStrArr = ""
+        for (let element of stringArr) {
+            newStrArr += "<li>" + element + "</li>"
+        }
+        document.getElementById('studentList').innerHTML = newStrArr
+    }
+    displaylist(stringArr)
+    function addthefilter(arr) {
+        let filterCriteria = document.getElementById("search").value
+        let filterResult = arr.filter((name) => name.toLowerCase().substring(0,filterCriteria.length) === filterCriteria.toLowerCase())
+        displaylist(filterResult)
+    }
+
+</script>
+
+</html>
