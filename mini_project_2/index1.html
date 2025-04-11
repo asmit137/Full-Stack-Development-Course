@@ -54,8 +54,7 @@
     <h1>Table Search</h1>
 
     <div class="searchDiv">
-        <input type="text" id="searchBox" placeholder="Enter The Complete Word of Your Search">
-        <button type="submit" onclick="onClickSearch()">Search</button>
+        <input type="text" id="searchBox" placeholder="Enter The Complete Word of Your Search" oninputclick="onClickSearch()">
     </div>
 
     <div style="display: flex; justify-content: center; align-items: center;">
@@ -102,7 +101,7 @@
     // Filtering data function
     function filterTheDataBySearch(operationArr, filterCriteria) {
 
-        let filteredArr = operationArr.filter((data) => data.name.toLowerCase() === filterCriteria.toLowerCase() || data.Course.toLowerCase() === filterCriteria.toLowerCase() || data.location.toLowerCase() === filterCriteria.toLowerCase())
+        let filteredArr = operationArr.filter((data) => data.name.substring(0, filterCriteria.length).toLowerCase() === filterCriteria.toLowerCase() || data.Course.substring(0, filterCriteria.length).toLowerCase() === filterCriteria.toLowerCase() || data.location.substring(0, filterCriteria.length).toLowerCase() === filterCriteria.toLowerCase())
 
         if (filteredArr.length != 0) {
 
